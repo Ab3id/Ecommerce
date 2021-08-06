@@ -1,3 +1,8 @@
 package ab3id.ecom.models
 
-data class StoreProduct(val img:String,val title:String, val price:String)
+import com.google.gson.annotations.SerializedName
+
+data class StoreProduct(
+    @SerializedName("img") val img:String,
+    @SerializedName("title") val title:String,
+    @SerializedName("price") val price:String)

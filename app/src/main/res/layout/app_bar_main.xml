@@ -13,11 +13,11 @@
         android:theme="@style/Theme.Ecommerce.AppBarOverlay">
 
         <androidx.appcompat.widget.Toolbar
-            app:titleTextColor="@color/black"
+            app:titleTextColor="?android:textColorPrimary"
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/white"
+            android:background="?attr/colorOnPrimary"
             app:popupTheme="@style/Theme.Ecommerce.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>

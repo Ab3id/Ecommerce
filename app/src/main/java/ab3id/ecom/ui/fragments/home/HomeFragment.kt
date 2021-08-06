@@ -11,8 +11,10 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.button.MaterialButton
 
 
 class HomeFragment : Fragment() {
@@ -35,6 +37,12 @@ class HomeFragment : Fragment() {
         homeViewModel.productList.observe(viewLifecycleOwner, Observer {
             productsRecycler.adapter = StoreProductsAdapter(it)
         })
+        val viewShopButton:MaterialButton = root.findViewById(R.id.btnViewShop);
+        viewShopButton.setOnClickListener { v ->
+            run {
+                Navigation.findNavController(v).navigate(R.id.goToMapsAction)
+            }
+        }
 
         addData()
         return root
@@ -47,6 +55,14 @@ class HomeFragment : Fragment() {
         storeProducts.add(StoreProduct("","Organic Cotton","TSH 8500"))
         storeProducts.add(StoreProduct("","Cotton Shirt","TSH 9500"))
         storeProducts.add(StoreProduct("","Armani Shirt","TSH 1500"))
+        storeProducts.add(StoreProduct("","Gucci Shirt","TSH 10500"))
+        storeProducts.add(StoreProduct("","Gucci Shirt","TSH 10500"))
+        storeProducts.add(StoreProduct("","Gucci Shirt","TSH 10500"))
+        storeProducts.add(StoreProduct("","Gucci Shirt","TSH 10500"))
+        storeProducts.add(StoreProduct("","Gucci Shirt","TSH 10500"))
+        storeProducts.add(StoreProduct("","Gucci Shirt","TSH 10500"))
+        storeProducts.add(StoreProduct("","Gucci Shirt","TSH 10500"))
+        storeProducts.add(StoreProduct("","Gucci Shirt","TSH 10500"))
         storeProducts.add(StoreProduct("","Gucci Shirt","TSH 10500"))
         homeViewModel.add(storeProducts)
         productsRecycler.adapter?.notifyDataSetChanged()
