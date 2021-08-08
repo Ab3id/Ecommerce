@@ -28,7 +28,10 @@ interface ApiCalls {
     fun adminCreateProduct(
         @Field("img") img: String?,
         @Field("title") title: String?,
-        @Field("price") price: String?
+        @Field("price") price: String?,
+        @Field("store_name") store_name: String?,
+        @Field("lat") lat: String?,
+        @Field("lng") lng: String?
     ): Call<StoreProduct>
 
 

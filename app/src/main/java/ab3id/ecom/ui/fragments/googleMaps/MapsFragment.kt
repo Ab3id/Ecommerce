@@ -22,6 +22,9 @@ class MapsFragment:Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val storeName: String? = arguments?.getString("store_name")
+        val storeLat : String? = arguments?.getString("lat")
+        val storeLng: String? = arguments?.getString("lng")
         mapsViewModel = ViewModelProvider(this).get(MapsViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_maps, container, false)
         mapView = root.findViewById(R.id.map)
@@ -37,22 +40,29 @@ class MapsFragment:Fragment() {
         mapView.getMapAsync { gmap ->
             run {
                 mMap = gmap
-                addMarker()
+                if(!storeName.isNullOrEmpty() && !storeLat.isNullOrEmpty() && !storeLng.isNullOrEmpty()){
+                    val lat:Double = storeLat.toDouble()
+                    val lng:Double = storeLng.toDouble();
+
+                    addMarker(lat = lat,long = lng, name = storeName)
+                }else{
+                    addMarker()
+                }
             }
         }
         return root;
     }
 
-    private fun addMarker (){
+    private fun addMarker (lat:Double = -6.819432429195501, long:Double = 39.27480161257706, name:String = "Wool Essentials, kariakoo"){
         //kariakoo -6.819432429195501, 39.27480161257706
         mMap.clear()
-        val sydney = LatLng(-6.819432429195501, 39.27480161257706)
+        val sydney = LatLng(lat, long)
         mMap.addMarker {
             position(sydney)
-            title("Wool Essentials, kariakoo")
+            title(name)
         }
 
-        animateCamera(-6.819432429195501,39.27480161257706)
+        animateCamera(lat,long)
     }
 
     private fun animateCamera (lat:Double, lng:Double) {

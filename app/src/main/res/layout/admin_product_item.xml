@@ -22,43 +22,53 @@
         android:focusable="true">
 
         <RelativeLayout
+            android:layout_margin="5dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <ImageView
-                android:id="@+id/product_image"
+                android:minHeight="250dp"
+                android:id="@+id/adminProductImage"
                 android:scaleType="centerCrop"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="wrap_content"
                 android:src="@drawable/female_top"/>
 
             <TextView
                 android:layout_margin="5dp"
-                android:id="@+id/product_title"
+                android:id="@+id/adminProdTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/product_image"
+                android:layout_below="@id/adminProductImage"
                 android:fontFamily="@font/roboto_medium"
                 android:text="This is a sample product for testing"
                 android:textColor="@color/black"
                 android:textAlignment="center" />
             <TextView
                 android:textSize="12sp"
-                android:layout_below="@id/product_title"
+                android:layout_below="@id/adminProdTitle"
                 android:textAlignment="center"
                 android:text="TSH 10000"
                 android:fontFamily="@font/roboto_medium"
-                android:id="@+id/product_price"
+                android:id="@+id/tvAdminPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
+                android:layout_below="@id/tvAdminPrice"
+                android:id="@+id/storeName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="WaraWara Colee"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="16sp"/>
+            <TextView
                 android:textSize="12sp"
                 android:layout_margin="5dp"
-                android:layout_below="@id/product_price"
+                android:layout_below="@id/storeName"
                 android:textAlignment="textEnd"
                 android:text="Store Location"
                 android:textColor="@color/purple_200"
                 android:fontFamily="@font/roboto_medium"
-                android:id="@+id/store_location"
+                android:id="@+id/tvLatLng"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </RelativeLayout>
@@ -68,3 +78,5 @@
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+

@@ -81,6 +81,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
+        <TextView
+            android:id="@+id/tvNoData"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="No data available"
+            android:textSize="20sp"
+            android:textAlignment="center"/>
+
     </LinearLayout>
 
 
