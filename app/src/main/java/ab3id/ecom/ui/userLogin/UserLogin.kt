@@ -60,7 +60,9 @@ class UserLogin : AppCompatActivity() {
                         if (response.isSuccessful) {
                             customToast("Success!, Welcome")
                             val responseUserData:UserAccount? = response.body()
-                            saveUserLocal(responseUserData?.username,responseUserData?.userRole)
+                            if (responseUserData != null) {
+                                saveUserLocal(responseUserData.username,responseUserData.userRole,responseUserData.id)
+                            }
                             val loginIntent = Intent(applicationContext, MainActivity::class.java)
                             startActivity(loginIntent)
                             finish()

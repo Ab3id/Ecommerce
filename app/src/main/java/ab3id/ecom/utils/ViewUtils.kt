@@ -20,11 +20,12 @@ import android.widget.Toast
         visibility = View.GONE
     }
 
-    fun Context.saveUserLocal (username:String?, role:String?){
+    fun Context.saveUserLocal (username:String?, role:String?,id: Int){
         val shareStorage: SharedPreferences = this.getSharedPreferences("app_user_data",Context.MODE_PRIVATE)
         val editor:SharedPreferences.Editor =  shareStorage.edit()
         editor.putString("username",username);
         editor.putString("role",role)
+        editor.putInt("id",id)
         editor.apply()
         editor.commit()
     }
@@ -44,5 +45,10 @@ fun Context.getUserNameFromLocal():String {
 fun Context.getUserRole():String {
     val shareStorage: SharedPreferences = this.getSharedPreferences("app_user_data",Context.MODE_PRIVATE)
     return shareStorage.getString("role","0").toString()
+}
+
+fun Context.getUserID():Int {
+    val shareStorage: SharedPreferences = this.getSharedPreferences("app_user_data",Context.MODE_PRIVATE)
+    return shareStorage.getInt("id",0)
 }
 

@@ -1,5 +1,6 @@
 package ab3id.ecom.data.api
 
+import ab3id.ecom.models.CartItem
 import ab3id.ecom.models.StoreProduct
 import ab3id.ecom.models.UserAccount
 import retrofit2.Call
@@ -33,6 +34,14 @@ interface ApiCalls {
         @Field("lat") lat: String?,
         @Field("lng") lng: String?
     ): Call<StoreProduct>
+
+    @FormUrlEncoded
+    @POST("Cart/create.php")
+    fun createCartItem( @Field("userid") id: Int?, @Field("title") title: String?, @Field("price") price: String?):Call<String>
+
+    @FormUrlEncoded
+    @POST("Cart/index.php")
+    fun getAllCartItems(@Field("uid") id: Int?):Call<ArrayList<CartItem>>
 
 
     @GET("Product/index.php")

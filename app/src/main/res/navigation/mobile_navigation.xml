@@ -36,6 +36,12 @@
         android:name="ab3id.ecom.ui.fragments.shopAdmin.AdminFragment"
         android:label="Shop Admin" />
     <action android:id="@+id/openAdminFragmentAction" app:destination="@id/adminFragment"/>
+    <fragment
+        android:id="@+id/userCartFragment"
+        android:name="ab3id.ecom.ui.fragments.cart.UserCartFragment"
+        android:label="Cart"
+        tools:layout="@layout/fragment_user_cart"/>
+        <action android:id="@+id/openCartAction"  app:destination="@id/userCartFragment"/>
 
 
 </navigation>

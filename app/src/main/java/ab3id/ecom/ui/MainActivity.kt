@@ -48,6 +48,16 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.action_cart) {
+            val navController = findNavController(R.id.nav_host_fragment)
+            navController.navigate(R.id.openCartAction)
+            return true;
+        } else{
+            return super.onOptionsItemSelected(item)
+        }
+    }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
        if(getUserRole() == "1"){
@@ -59,6 +69,7 @@ class MainActivity : AppCompatActivity() {
                true
            }
        }
+
         menuInflater.inflate(R.menu.main, menu)
         return true
     }

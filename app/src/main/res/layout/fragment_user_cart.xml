@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/cartRV"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="150dp"
+        android:text="Pay Now"
+        app:cornerRadius="30dp"
+        app:backgroundTint="@color/purple_200"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_margin="10dp"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
